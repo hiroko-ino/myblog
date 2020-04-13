@@ -8,13 +8,66 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import styled, { createGlobalStyle } from "styled-components"
+import media from "styled-media-query"
+import Media from 'react-media'
+import 'reset-css'
 
-import Header from "./header"
-import "./layout.css"
+import Header from './header'
+import SideBar from './SideBar'
+import Menu from './Menu'
+
+import { white, mainBGBlue, mainBGPurple } from '../const/color'
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-height: 100%;
+  }
+
+  body {
+    background: linear-gradient(to bottom right, ${mainBGBlue}, ${mainBGPurple});
+    color: ${white};
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  }
+
+  a {
+    color: ${white};
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`
+
+const Body = styled.div`
+  display: flex;
+
+  ${media.lessThan("large")`
+    padding-right: 20px;
+  `}
+
+  ${media.lessThan("medium")`
+    padding-left: 20px;
+  `}
+`
+
+const Main = styled.main`
+  width: calc(100% - 290px - 32px);
+
+  ${media.lessThan("large")`
+    width: 100%;
+  `}
+
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query {
       site {
         siteMetadata {
           title
@@ -25,21 +78,21 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Media query="(max-width: 1170px)">
+          {matches => (
+              <>
+                {matches && (
+                  <Menu />
+                )}
+              </>
+          )}
+        </Media>
+      <Body>
+        <Main>{children}</Main>
+        <SideBar />
+      </Body>
     </>
   )
 }

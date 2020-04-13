@@ -1,21 +1,51 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import BlogList from '../components/BlogList'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const List = styled.ul`
 
-export default IndexPage
+`
+
+const Index = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+        edges {
+          node {
+            title
+            createdAt(formatString: "Y.MM.DD")
+            slug
+            category {
+              name
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <Layout>
+      <SEO title={'トップページ'} />
+      <List>
+        {data.allContentfulBlogPost.edges.map(edge => {
+          return (
+            <BlogList
+              key={edge.node.slug}
+              title={edge.node.title}
+              slug={edge.node.slug}
+              category={edge.node.category.name}
+              createdAt={edge.node.createdAt}
+            />
+          )
+        })}
+      </List>
+    </Layout>
+  )
+}
+
+export default Index

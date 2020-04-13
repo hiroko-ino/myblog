@@ -1,0 +1,1 @@
+export const font_en = `'Crimson Text', serif`;
