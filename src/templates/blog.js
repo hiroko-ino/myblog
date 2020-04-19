@@ -142,7 +142,7 @@ const Body = styled.div`
       margin-top: 1em;
     }
 
-    & p.code {
+    & pre {
       margin-top: 25px;
       background: rgba(255, 255, 255, 0.1);
       padding: 15px;
