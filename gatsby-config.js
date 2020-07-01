@@ -13,7 +13,7 @@ const config = (process.env.NODE_ENV === 'development') ? {
 module.exports = {
   siteMetadata: {
     title: `type:any`,
-    description: `Write some article about Front-end.`,
+    description: `フロントエンドのことを中心に、自分の書きたいことを書くブログ`,
     author: `hiroko ino`,
   },
   plugins: [

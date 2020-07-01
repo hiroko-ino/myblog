@@ -23,12 +23,12 @@ export const data = graphql`
         title
         createdAt(formatString: "Y.MM.DD")
         body {
-        body
+          body
         }
         category {
-        name
+          name
         }
-    }
+      }
     }
 `
 const Wrap = styled.main`
@@ -173,9 +173,11 @@ const LineLink = styled(Link)`
 `
 
 const BlogPage = (props) => {  
+    const bodyExcerpt = props.data.contentfulBlogPost.body.body.slice(0, 120);
+
     return (
         <Layout>
-            <SEO title={props.data.contentfulBlogPost.title} />
+            <SEO title={props.data.contentfulBlogPost.title} description={bodyExcerpt} />
             <Wrap>
                 <Date>{props.data.contentfulBlogPost.createdAt}</Date>
                 <Main>
