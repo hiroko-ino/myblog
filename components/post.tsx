@@ -1,8 +1,10 @@
+import Link from 'next/link'
+
 function Post({ title, slug, category, createdAt, body }) {
   return (
     <div className="container">
       <div className="text">
-        <h2>{title}</h2>
+      <Link href={`/blog/${encodeURIComponent(slug)}`}><h2>{title}</h2></Link>
         <p>{slug}, {category}, {createdAt}</p>
         <p>{body}</p>
       </div>
