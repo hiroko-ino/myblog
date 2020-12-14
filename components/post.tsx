@@ -1,20 +1,15 @@
 import Link from 'next/link'
 
-function Post({ title, slug, category, createdAt, body }) {
+function Post({ title, slug, category, createdAt }) {
   return (
-    <div className="container">
-      <div className="text">
-      <Link href={`/blog/${encodeURIComponent(slug)}`}><h2>{title}</h2></Link>
-        <p>{slug}, {category}, {createdAt}</p>
-        <p>{body}</p>
+    <div>
+      <p>{createdAt}</p>
+      <div>
+        <Link href={`/blog/${encodeURIComponent(slug)}`}>
+          <h2>{title}</h2>
+        </Link>
+        <p>{'{'} category: {`"${category}"`} {'}'}</p>
       </div>
-      <style jsx>{`
-        .container {
-          cursor: pointer;
-          height: 453px;
-          margin-bottom: 48px;
-        }
-      `}</style>
     </div>
   )
 }

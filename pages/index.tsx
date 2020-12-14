@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Post from '../components/post'
 
-const client = require('contentful').createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-})
+import { client } from '../libs/contentful'
 
 function HomePage() {
   async function fetchEntries() {
@@ -18,6 +15,7 @@ function HomePage() {
   useEffect(() => {
     async function getPosts() {
       const allPosts = await fetchEntries()
+      console.log(allPosts);
       setPosts([...allPosts])
     }
     getPosts()
