@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import './variable';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(to bottom right, $mainBGBlue, $mainBGPurple);
+  color: $white;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+
+a {
+  color: $white;
+  &:hover {
+    text-decoration: none;
+  }
+}
