@@ -24,12 +24,9 @@ function HomePage() {
   return (
     <>
       <Head>
-        <title>Next.js + Contentful</title>
-        <link
-          rel="stylesheet"
-          href="https://css.zeit.sh/v1.css"
-          type="text/css"
-        />
+        <title>type:any</title>
+        <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
+        <link rel="icon" href="/icons/icon-48x48.png"/>
       </Head>
       {posts.length > 0
         ? posts.map((p) => (
@@ -39,7 +36,6 @@ function HomePage() {
               category={p.fields.category.fields.name}
               slug={p.fields.slug}
               createdAt={p.sys.createdAt}
-              body={p.fields.body}
           />
           ))
         : null}
