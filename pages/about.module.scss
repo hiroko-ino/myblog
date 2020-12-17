@@ -1,0 +1,14 @@
+@import '../styles/variable';
+
+.wrap {
+  padding-left: 130px;
+
+  @media screen and (max-width:767px) {
+    padding-left: 0;
+  }
+}
+
+.description {
+  font-size: $FontSizeS;
+  line-height: $mainLineHeight;
+}
