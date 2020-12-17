@@ -8,7 +8,7 @@ import Layout from '../components/Layout'
 
 function HomePage() {
   async function fetchEntries() {
-    const entries = await client.getEntries({content_type: "blogPost"})
+    const entries = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt'})
     if (entries.items) return entries.items
   }
 
