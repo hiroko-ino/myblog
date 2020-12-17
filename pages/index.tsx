@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Post from '../components/post'
+import Post from '../components/Post'
 
 import { client } from '../libs/contentful'
+
+import Layout from '../components/Layout'
 
 function HomePage() {
   async function fetchEntries() {
@@ -15,7 +17,6 @@ function HomePage() {
   useEffect(() => {
     async function getPosts() {
       const allPosts = await fetchEntries()
-      console.log(allPosts);
       setPosts([...allPosts])
     }
     getPosts()
@@ -28,17 +29,19 @@ function HomePage() {
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
         <link rel="icon" href="/icons/favicon.png"/>
       </Head>
-      {posts.length > 0
-        ? posts.map((p) => (
-            <Post
-              key={p.fields.slug}
-              title={p.fields.title}
-              category={p.fields.category.fields.name}
-              slug={p.fields.slug}
-              createdAt={p.sys.createdAt}
-          />
-          ))
-        : null}
+      <Layout>
+        {posts.length > 0
+          ? posts.map((p) => (
+              <Post
+                key={p.fields.slug}
+                title={p.fields.title}
+                category={p.fields.category.fields.name}
+                slug={p.fields.slug}
+                createdAt={p.sys.createdAt}
+            />
+            ))
+          : null}
+        </Layout>
     </>
   )
 }
