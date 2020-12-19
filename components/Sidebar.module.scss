@@ -15,4 +15,20 @@
   font-family: $font_en;
   font-size: $FontSizeS;
   letter-spacing: $letterSpacingMin;
+  line-height: $LineHeightmin;
+
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+.heading {
+  font-size: 22px;
+  font-family: $font_en;
+  margin-top: 45px;
+  letter-spacing: $letterSpacingMin;
+}
+
+.list {
+  margin-top: 18px;
 }
