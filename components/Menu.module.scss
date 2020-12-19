@@ -44,10 +44,10 @@
   font-family: $font_en;
   font-size: $FontSizeS;
   letter-spacing: $letterSpacingMin;
-  text-align: center;
+  line-height: $LineHeightmin;
 
-  &:not(:first-child) {
-    margin-top: 15px;
+  & + & {
+    margin-top: 10px;
   }
 }
 
@@ -60,4 +60,16 @@
   left: 0;
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+
+.heading {
+  font-size: 22px;
+  font-family: $font_en;
+  margin-top: 45px;
+  letter-spacing: $letterSpacingMin;
+}
+
+.list {
+  margin-top: 18px;
 }
