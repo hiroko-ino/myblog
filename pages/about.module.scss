@@ -2,9 +2,11 @@
 
 .wrap {
   padding-left: 130px;
+  padding-right: 130px;
 
   @media screen and (max-width:767px) {
     padding-left: 0;
+    padding-right: 0;
   }
 }
 

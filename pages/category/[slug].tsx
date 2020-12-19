@@ -15,7 +15,7 @@ const Blog = ({ posts, category }) => {
     <>
       <Head>
         <title>{category} | type:any</title>
-        <link rel="icon" href="/icons/favicon.png"/>
+        <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout>
         {posts.length > 0

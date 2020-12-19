@@ -17,7 +17,7 @@ const Blog = ({ post }) => {
       <Head>
         <title>{post.fields.title} | type:any</title>
         <meta name="description" content={post.fields.body.slice(0, 120).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')}></meta>
-        <link rel="icon" href="/icons/favicon.png"/>
+        <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout>
         <div className={styled.wrap}>
