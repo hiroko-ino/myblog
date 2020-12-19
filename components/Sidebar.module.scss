@@ -1,0 +1,34 @@
+@import '../styles/variable';
+
+.wrap {
+  width: 265px;
+  margin-left: 32px;
+  border-top: 1px solid $white;
+  padding: 24px 12px;
+
+  @media screen and (max-width:1169px) {
+    display: none;
+  }
+}
+
+.item {
+  font-family: $font_en;
+  font-size: $FontSizeS;
+  letter-spacing: $letterSpacingMin;
+  line-height: $LineHeightmin;
+
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+.heading {
+  font-size: 22px;
+  font-family: $font_en;
+  margin-top: 45px;
+  letter-spacing: $letterSpacingMin;
+}
+
+.list {
+  margin-top: 18px;
+}

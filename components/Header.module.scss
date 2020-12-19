@@ -1,0 +1,22 @@
+.header {
+  padding: 30px 52px 133px;
+  letter-spacing: 0.5em;
+
+  @media screen and (max-width:767px) {
+    padding: 25px 15px 30px;
+  }
+}
+
+.heading {
+  margin: 0;
+  font-size: 36px;
+  font-family: 'Crimson Text', serif;
+
+  @media screen and (max-width:767px) {
+    font-size: 25px;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
