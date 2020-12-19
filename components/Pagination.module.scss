@@ -1,0 +1,47 @@
+.pagination {
+  margin-top: 60px;
+
+  @media screen and (min-width:768px) {
+    padding-left: 130px;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  position: relative;
+  border: 1px solid #fff;
+
+  &.is_active {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+    }
+  }
+
+  & + & {
+    margin-left: 32px;
+  }
+}
+
+.link {
+  text-decoration: none;
+}

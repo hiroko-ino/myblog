@@ -5,6 +5,7 @@ import Post from '../components/Post'
 import { client } from '../libs/contentful'
 
 import Layout from '../components/Layout'
+import Pagination from '../components/Pagination'
 
 function HomePage() {
   async function fetchEntries() {
@@ -41,6 +42,7 @@ function HomePage() {
             />
             ))
           : null}
+          <Pagination posts={posts} currentNum={1} />
         </Layout>
     </>
   )
