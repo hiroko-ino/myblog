@@ -7,14 +7,16 @@ import { client } from '../../../libs/contentful'
 
 import Layout from '../../../components/Layout'
 import Post from '../../../components/Post'
+import Pagination from '../../../components/Pagination'
 
 import styled from './[num].module.scss'
 
-const Paged = ({ posts, category }) => {
+const Paged = ({ posts, num, allPosts }) => {
   return (
     <>
       <Head>
-        <title>{category} | type:any</title>
+        <title>type:any</title>
+        <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout>
@@ -29,6 +31,7 @@ const Paged = ({ posts, category }) => {
             />
             ))
           : null}
+        <Pagination posts={allPosts} currentNum={Number(num)} />
       </Layout>
     </>
   )
@@ -52,10 +55,13 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const posts = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt', limit: 10, skip: (params.num - 1) * 10 })
+  const allPosts = await client.getEntries({content_type: 'blogPost'})
 
   return {
     props: {
       posts: posts.items,
+      num: params.num,
+      allPosts: allPosts.items
     },
   }
 }
