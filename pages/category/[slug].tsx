@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 import { client } from '../../libs/contentful'
 
 import Layout from '../../components/Layout'
-import Post from '../../components/Post'
+import Post from '../../components/post'
 
 import styled from './[slug].module.scss'
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Post from '../components/Post'
+import Post from '../components/post'
 
 import { client } from '../libs/contentful'
 
