@@ -119,6 +119,13 @@
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
   }
+
+  & h2 {
+    border-bottom: 1px solid $white;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    font-size: $basicFontSize;
+  }
 }
 
 .back {
@@ -143,3 +150,4 @@
     font-size: $FontSizeS_SP;
   }
 }
+
