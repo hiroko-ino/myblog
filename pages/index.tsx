@@ -7,22 +7,7 @@ import { client } from '../libs/contentful'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
 
-function HomePage() {
-  async function fetchEntries() {
-    const entries = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt'})
-    if (entries.items) return entries.items
-  }
-
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    async function getPosts() {
-      const allPosts = await fetchEntries()
-      setPosts([...allPosts])
-    }
-    getPosts()
-  }, [])
-
+function HomePage({ posts, category }) {
   return (
     <>
       <Head>
@@ -30,7 +15,7 @@ function HomePage() {
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
         <link rel="icon" href="/favicon.png"/>
       </Head>
-      <Layout>
+      <Layout category={category}>
         {posts.length > 0
           ? posts.map((p) => (
               <Post
@@ -46,6 +31,18 @@ function HomePage() {
         </Layout>
     </>
   )
+}
+
+export const getStaticProps = async ({ params }) => {
+  const entries = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt'})
+  const category = await client.getEntries({content_type: "category"})
+
+  return {
+    props: {
+      posts: entries.items,
+      category: category.items
+    },
+  }
 }
 
 export default HomePage
