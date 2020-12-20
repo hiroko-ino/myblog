@@ -6,7 +6,7 @@ import { client } from '../libs/contentful'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
 
-function HomePage({ posts, category }) {
+function HomePage({ posts }) {
   return (
     <>
       <Head>
@@ -16,14 +16,14 @@ function HomePage({ posts, category }) {
       </Head>
       <Layout>
         {posts.length > 0
-          ? posts.map((p) => (
-              <Post
+          ? posts.map((p, index) => (
+              index < 10 && <Post
                 key={p.fields.slug}
                 title={p.fields.title}
                 category={p.fields.category.fields.name}
                 slug={p.fields.slug}
                 createdAt={p.sys.createdAt}
-            />
+              />
             ))
           : null}
           <Pagination posts={posts} currentNum={1} />
