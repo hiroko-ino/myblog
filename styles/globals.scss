@@ -13,6 +13,7 @@ body {
   background: linear-gradient(to bottom right, $mainBGBlue, $mainBGPurple);
   color: $white;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  word-break: break-all;
 }
 
 a {
