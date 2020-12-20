@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Post from '../components/post'
 
@@ -7,22 +6,7 @@ import { client } from '../libs/contentful'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
 
-function HomePage() {
-  async function fetchEntries() {
-    const entries = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt'})
-    if (entries.items) return entries.items
-  }
-
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    async function getPosts() {
-      const allPosts = await fetchEntries()
-      setPosts([...allPosts])
-    }
-    getPosts()
-  }, [])
-
+function HomePage({ posts, category }) {
   return (
     <>
       <Head>
@@ -46,6 +30,16 @@ function HomePage() {
         </Layout>
     </>
   )
+}
+
+export const getStaticProps = async ({ params }) => {
+  const entries = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt'})
+
+  return {
+    props: {
+      posts: entries.items,
+    },
+  }
 }
 
 export default HomePage
