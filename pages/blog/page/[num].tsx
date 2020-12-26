@@ -6,7 +6,7 @@ import Layout from '../../../components/Layout'
 import Post from '../../../components/post'
 import Pagination from '../../../components/Pagination'
 
-const Paged = ({ posts, num, allPosts }) => {
+const Paged = ({ posts, num, allPosts, category }) => {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ const Paged = ({ posts, num, allPosts }) => {
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
         <link rel="icon" href="/favicon.png"/>
       </Head>
-      <Layout>
+      <Layout category={category}>
         {posts.length > 0
           ? posts.map((p) => (
               <Post
@@ -51,12 +51,14 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const posts = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt', limit: 10, skip: (params.num - 1) * 10 })
   const allPosts = await client.getEntries({content_type: 'blogPost'})
+  const category = await client.getEntries({content_type: "category"})
 
   return {
     props: {
       posts: posts.items,
       num: params.num,
-      allPosts: allPosts.items
+      allPosts: allPosts.items,
+      category: category.items
     },
   }
 }

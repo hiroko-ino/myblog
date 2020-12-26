@@ -7,16 +7,16 @@ import Menu from './Menu'
 
 import styles from './Layout.module.scss'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, category }) => {
   return (
     <>
       <Header />
       <MediaQuery query="(max-width: 1170px)">
-        <Menu />
+        <Menu category={category} />
       </MediaQuery>
       <div className={styles.container}>
         <div className={styles.main}>{children}</div>
-        <SideBar />
+        <SideBar category={category} />
       </div>
     </>
   )

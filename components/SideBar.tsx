@@ -1,26 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import Link from 'next/link'
-
-import { client } from '../libs/contentful'
 
 import styled from './Sidebar.module.scss'
 
-const SideBar = () => {
-  async function fetchEntries() {
-    const entries = await client.getEntries({content_type: "category"})
-    if (entries.items) return entries.items
-  }
-
-  const [category, setCategory] = useState([])
-
-  useEffect(() => {
-    async function getPosts() {
-      const allPosts = await fetchEntries()
-      setCategory([...allPosts])
-    }
-    getPosts()
-  }, [])
-
+const SideBar = ({ category }) => {
   return (
     <div className={styled.wrap}>
       <p className={styled.item}><Link href="/about">About me</Link></p>

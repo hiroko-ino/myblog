@@ -5,14 +5,14 @@ import { client } from '../../libs/contentful'
 import Layout from '../../components/Layout'
 import Post from '../../components/post'
 
-const Blog = ({ posts, category }) => {
+const Blog = ({ posts, categorySlug, category }) => {
   return (
     <>
       <Head>
-        <title>{category} | type:any</title>
+        <title>{categorySlug} | type:any</title>
         <link rel="icon" href="/favicon.png"/>
       </Head>
-      <Layout>
+      <Layout category={category}>
         <div>
           {posts.length > 0
             ? posts.map((p) => (
@@ -43,13 +43,15 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const category = await client.getEntries({content_type: "category", 'fields.slug': params.slug})
-  const post = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": category.items[0].sys.id, order: '-sys.createdAt'})
+  const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.slug})
+  const post = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt'})
+  const category = await client.getEntries({content_type: "category"});
 
   return {
     props: {
       posts: post.items,
-      category: params.slug
+      categorySlug: params.slug,
+      category: category.items
     },
   }
 }

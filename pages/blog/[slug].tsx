@@ -9,7 +9,7 @@ import Layout from '../../components/Layout'
 
 import styled from './[slug].module.scss'
 
-const Blog = ({ post }) => {
+const Blog = ({ post, category }) => {
   const day = dayjs(post.sys.createdAt);
 
   return (
@@ -19,7 +19,7 @@ const Blog = ({ post }) => {
         <meta name="description" content={post.fields.body.slice(0, 120).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')}></meta>
         <link rel="icon" href="/favicon.png"/>
       </Head>
-      <Layout>
+      <Layout category={category}>
         <div className={styled.wrap}>
             <p className={styled.date}>{day.format("YYYY.MM.DD")}</p>
             <div className={styled.main}>
@@ -47,10 +47,12 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const post = await client.getEntries({content_type: "blogPost", "fields.slug": params.slug})
+  const category = await client.getEntries({content_type: "category"})
 
   return {
     props: {
-      post: post.items[0]
+      post: post.items[0],
+      category: category.items
     },
   }
 }
