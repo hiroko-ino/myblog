@@ -146,6 +146,11 @@
   border-bottom: 3px solid $white;
   padding: 0 3px 3px;
   text-decoration: none;
+  transition: padding .2s;
+
+  &:hover {
+    padding: 0 13px 3px;
+  }
 
   @media screen and (max-width:767px) {
     font-size: $FontSizeS_SP;
