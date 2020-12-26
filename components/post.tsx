@@ -14,9 +14,9 @@ const Post = ({ title, slug, category, createdAt }) => {
         <Link href={`/blog/${encodeURIComponent(slug)}`}>
           <a className={styled.link}>
             <h2 className={styled.heading}>{title}</h2>
+            <p className={styled.category}>{'{'} category: {`"${category}"`} {'}'}</p>
           </a>
         </Link>
-        <p className={styled.category}>{'{'} category: {`"${category}"`} {'}'}</p>
       </div>
     </div>
   )
