@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styled from './Pagination.module.scss'
 
-function Pagination({posts, currentNum}) {
+const Pagination = ({posts, currentNum}) => {
   const getLists = (posts, currentNum) => {
     const list = []
     for (let i = 0; i <= Math.floor(posts.length / 10); i++) {

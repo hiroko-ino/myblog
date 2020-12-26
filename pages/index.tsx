@@ -6,7 +6,7 @@ import { client } from '../libs/contentful'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
 
-function HomePage({ posts }) {
+const HomePage = ({ posts }) => {
   return (
     <>
       <Head>
