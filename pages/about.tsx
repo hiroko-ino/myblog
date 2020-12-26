@@ -3,11 +3,13 @@ import Head from 'next/head'
 
 import Layout from '../components/Layout'
 
+import { client } from '../libs/contentful'
+
 import styled from './about.module.scss'
 
-const About = () => {
+const About = ({ category }) => {
   return (
-    <Layout>
+    <Layout category={category}>
       <Head>
         <title>about | type:any</title>
         <meta name="description" content="type:anyのブログに関する情報です。"></meta>
@@ -24,6 +26,16 @@ const About = () => {
       </div>
     </Layout>
   )
+}
+
+export const getStaticProps = async ({ params }) => {
+  const category = await client.getEntries({content_type: "category"});
+
+  return {
+    props: {
+      category: category.items
+    },
+  }
 }
 
 export default About

@@ -1,34 +1,31 @@
-import Link from 'next/link'
 import Head from 'next/head'
-
-import dayjs from 'dayjs'
 
 import { client } from '../../libs/contentful'
 
 import Layout from '../../components/Layout'
 import Post from '../../components/post'
 
-import styled from './[slug].module.scss'
-
-const Blog = ({ posts, category }) => {
+const Blog = ({ posts, categorySlug, category }) => {
   return (
     <>
       <Head>
-        <title>{category} | type:any</title>
+        <title>{categorySlug} | type:any</title>
         <link rel="icon" href="/favicon.png"/>
       </Head>
-      <Layout>
-        {posts.length > 0
-          ? posts.map((p) => (
-              <Post
-                key={p.fields.slug}
-                title={p.fields.title}
-                category={p.fields.category.fields.name}
-                slug={p.fields.slug}
-                createdAt={p.sys.createdAt}
-            />
-            ))
-          : null}
+      <Layout category={category}>
+        <div>
+          {posts.length > 0
+            ? posts.map((p) => (
+                <Post
+                  key={p.fields.slug}
+                  title={p.fields.title}
+                  category={p.fields.category.fields.name}
+                  slug={p.fields.slug}
+                  createdAt={p.sys.createdAt}
+              />
+              ))
+            : null}
+          </div>
       </Layout>
     </>
   )
@@ -46,13 +43,15 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const category = await client.getEntries({content_type: "category", 'fields.slug': params.slug})
-  const post = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": category.items[0].sys.id, order: '-sys.createdAt'})
+  const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.slug})
+  const post = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt'})
+  const category = await client.getEntries({content_type: "category"});
 
   return {
     props: {
       posts: post.items,
-      category: params.slug
+      categorySlug: params.slug,
+      category: category.items
     },
   }
 }

@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 import styled from './Post.module.scss'
 
-function Post({ title, slug, category, createdAt }) {
+const Post = ({ title, slug, category, createdAt }) => {
   const day = dayjs(createdAt);
 
   return (
@@ -14,9 +14,9 @@ function Post({ title, slug, category, createdAt }) {
         <Link href={`/blog/${encodeURIComponent(slug)}`}>
           <a className={styled.link}>
             <h2 className={styled.heading}>{title}</h2>
+            <p className={styled.category}>{'{'} category: {`"${category}"`} {'}'}</p>
           </a>
         </Link>
-        <p className={styled.category}>{'{'} category: {`"${category}"`} {'}'}</p>
       </div>
     </div>
   )
