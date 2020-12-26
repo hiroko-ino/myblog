@@ -18,17 +18,19 @@ const Blog = ({ posts, category }) => {
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout>
-        {posts.length > 0
-          ? posts.map((p) => (
-              <Post
-                key={p.fields.slug}
-                title={p.fields.title}
-                category={p.fields.category.fields.name}
-                slug={p.fields.slug}
-                createdAt={p.sys.createdAt}
-            />
-            ))
-          : null}
+        <div>
+          {posts.length > 0
+            ? posts.map((p) => (
+                <Post
+                  key={p.fields.slug}
+                  title={p.fields.title}
+                  category={p.fields.category.fields.name}
+                  slug={p.fields.slug}
+                  createdAt={p.sys.createdAt}
+              />
+              ))
+            : null}
+          </div>
       </Layout>
     </>
   )

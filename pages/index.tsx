@@ -15,17 +15,19 @@ const HomePage = ({ posts }) => {
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout>
-        {posts.length > 0
-          ? posts.map((p, index) => (
-              index < 10 && <Post
-                key={p.fields.slug}
-                title={p.fields.title}
-                category={p.fields.category.fields.name}
-                slug={p.fields.slug}
-                createdAt={p.sys.createdAt}
-              />
-            ))
-          : null}
+        <div>
+          {posts.length > 0
+            ? posts.map((p, index) => (
+                index < 10 && <Post
+                  key={p.fields.slug}
+                  title={p.fields.title}
+                  category={p.fields.category.fields.name}
+                  slug={p.fields.slug}
+                  createdAt={p.sys.createdAt}
+                />
+              ))
+            : null}
+          </div>
           <Pagination posts={posts} currentNum={1} />
         </Layout>
     </>
