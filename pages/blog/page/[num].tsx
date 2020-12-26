@@ -1,15 +1,10 @@
-import Link from 'next/link'
 import Head from 'next/head'
-
-import dayjs from 'dayjs'
 
 import { client } from '../../../libs/contentful'
 
 import Layout from '../../../components/Layout'
 import Post from '../../../components/post'
 import Pagination from '../../../components/Pagination'
-
-import styled from './[num].module.scss'
 
 const Paged = ({ posts, num, allPosts }) => {
   return (
