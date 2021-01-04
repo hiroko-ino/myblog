@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styled from './Pagination.module.scss'
 
-const Pagination = ({posts, currentNum}) => {
+const Pagination = ({posts, currentNum, category = null}) => {
   const getLists = (posts, currentNum) => {
     const list = []
     for (let i = 0; i <= Math.floor(posts.length / 10); i++) {
@@ -10,7 +10,7 @@ const Pagination = ({posts, currentNum}) => {
         className={[styled.item, currentNum === i + 1 && styled.is_active].join(' ')}>
           {currentNum === i + 1 ?
             i + 1 :
-            <Link href={`/blog/page/${i + 1}`}><a className={styled.link}>{i + 1}</a></Link>}</li>
+            <Link href={category ? `/category/${category}/page/${i + 1}` : `/blog/page/${i + 1}`}><a className={styled.link}>{i + 1}</a></Link>}</li>
       );
     }
     return list;

@@ -1,9 +1,11 @@
 import Head from 'next/head'
 
-import { client } from '../../libs/contentful'
+import { client } from '../../../libs/contentful'
 
-import Layout from '../../components/Layout'
-import Post from '../../components/post'
+import Layout from '../../../components/Layout'
+import Post from '../../../components/post'
+
+import Pagination from '../../../components/Pagination'
 
 const Blog = ({ posts, categorySlug, category }) => {
   return (
@@ -13,19 +15,20 @@ const Blog = ({ posts, categorySlug, category }) => {
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout category={category}>
-        <div>
+      <div>
           {posts.length > 0
-            ? posts.map((p) => (
-                <Post
+            ? posts.map((p, index) => (
+                index < 10 && <Post
                   key={p.fields.slug}
                   title={p.fields.title}
                   category={p.fields.category.fields.name}
                   slug={p.fields.slug}
                   createdAt={p.sys.createdAt}
-              />
+                />
               ))
             : null}
           </div>
+          <Pagination posts={posts} currentNum={1} category={categorySlug} />
       </Layout>
     </>
   )
@@ -36,21 +39,21 @@ export const getStaticPaths = async () => {
 
   const paths = posts.items.map((post) => ({
     params: {
-      slug: post.fields.slug.toString(),
+      category: post.fields.slug.toString(),
     },
   }))
   return { paths, fallback: false }
 }
 
 export const getStaticProps = async ({ params }) => {
-  const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.slug})
+  const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.category})
   const post = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt'})
   const category = await client.getEntries({content_type: "category"});
 
   return {
     props: {
       posts: post.items,
-      categorySlug: params.slug,
+      categorySlug: params.category,
       category: category.items
     },
   }
