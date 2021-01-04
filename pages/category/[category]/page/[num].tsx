@@ -7,7 +7,7 @@ import Post from '../../../../components/post'
 import Pagination from '../../../../components/Pagination'
 import { lstat } from 'fs'
 
-const Paged = ({ posts, num, allPosts, category }) => {
+const Paged = ({ posts, num, category, categorySlug, allPosts }) => {
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ const Paged = ({ posts, num, allPosts, category }) => {
               ))
             : null}
           </div>
-        <Pagination posts={allPosts} currentNum={Number(num)} />
+        <Pagination posts={allPosts} currentNum={Number(num)} category={categorySlug} />
       </Layout>
     </>
   )
@@ -40,20 +40,19 @@ export const getStaticPaths = async () => {
 
   const paths = [];
 
-  for (let i = 0; i < category.length; i++) {
-    let posts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": category[i].sys.id, order: '-sys.createdAt'})
-    console.log(posts)
+  for (let i = 0; i < category.items.length; i++) {
+    let posts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": category.items[i].sys.id, order: '-sys.createdAt'})
     if (posts.items.length > 0) {
       paths.push({
         params: {
-          category: category[i].fields.slug.toString(),
+          category: category.items[i].fields.slug.toString(),
           num: "1"
         }
       });
       for (let l = 1; l <= Math.floor(posts.items.length / 10) + 1; l++) {
         paths.push({
           params: {
-            category: category[i].fields.slug.toString(),
+            category: category.items[i].fields.slug.toString(),
             num: (l + 1).toString()
           }
         });
@@ -66,9 +65,9 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.slug})
-  const posts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt'})
-  const allPosts = await client.getEntries({content_type: 'blogPost'})
+  const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.category})
+  const allPosts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id })
+  const posts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt', limit: 10, skip: (params.num - 1) * 10 })
   const category = await client.getEntries({content_type: "category"})
 
   return {
@@ -76,7 +75,8 @@ export const getStaticProps = async ({ params }) => {
       posts: posts.items,
       num: params.num,
       allPosts: allPosts.items,
-      category: category.items
+      category: category.items,
+      categorySlug: params.category
     },
   }
 }
