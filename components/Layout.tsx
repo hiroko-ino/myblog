@@ -1,4 +1,3 @@
-import React from "react"
 import MediaQuery from "react-responsive";
 
 import Header from './Header'
