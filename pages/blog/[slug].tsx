@@ -28,6 +28,12 @@ const Blog = ({ post, category, slug }) => {
         <title>{post.fields.title} | type:any</title>
         <meta name="description" content={post.fields.body.slice(0, 120).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')}></meta>
         <link rel="icon" href="/favicon.png"/>
+        <meta property="og:title" content={`${post.fields.title} | type:any`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://type-any.com/blog/${slug}`} />
+        <meta property="og:image" content="/ogp.png" />
+        <meta property="og:site_name" content="type:any" />
+        <meta property="og:description" content={post.fields.body.slice(0, 120).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')} />
       </Head>
       <Layout category={category}>
         <div className={styled.wrap}>
