@@ -5,7 +5,7 @@ import styled from './Pagination.module.scss'
 const Pagination = ({posts, currentNum, category = null}) => {
   const getLists = (posts, currentNum) => {
     const list = []
-    for (let i = 0; i <= Math.floor(posts.length / 10); i++) {
+    for (let i = 0; i < Math.floor(posts.length / 10); i++) {
       list.push(<li key={i + 1}
         className={[styled.item, currentNum === i + 1 && styled.is_active].join(' ')}>
           {currentNum === i + 1 ?
