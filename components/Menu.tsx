@@ -3,7 +3,9 @@ import Link from 'next/link'
 
 import styled from './Menu.module.scss'
 
-const Menu = ({ category }) => {
+const Menu = ({ category } : {
+  category: any
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuToggle = () => {

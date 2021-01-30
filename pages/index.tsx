@@ -6,7 +6,10 @@ import { client } from '../libs/contentful'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
 
-const HomePage = ({ posts, category }) => {
+const HomePage = ({ posts, category }: {
+  posts: any;
+  category: any;
+}) => {
   return (
     <>
       <Head>
@@ -17,7 +20,7 @@ const HomePage = ({ posts, category }) => {
       <Layout category={category}>
         <div>
           {posts.length > 0
-            ? posts.map((p, index) => (
+            ? posts.map((p: any, index: number) => (
                 index < 10 && <Post
                   key={p.fields.slug}
                   title={p.fields.title}
@@ -34,7 +37,9 @@ const HomePage = ({ posts, category }) => {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: {
+  params: any;
+}) => {
   const entries = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt'})
   const category = await client.getEntries({content_type: "category"});
 

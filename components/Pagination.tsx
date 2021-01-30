@@ -2,8 +2,12 @@ import Link from 'next/link'
 
 import styled from './Pagination.module.scss'
 
-const Pagination = ({posts, currentNum, category = null}) => {
-  const getLists = (posts, currentNum) => {
+const Pagination = ({posts, currentNum, category = null}: {
+  posts: any;
+  currentNum: number;
+  category?: string | null;
+}) => {
+  const getLists = (posts: any, currentNum: number) => {
     const list = []
     for (let i = 0; i < Math.ceil(posts.length / 10); i++) {
       list.push(<li key={i + 1}

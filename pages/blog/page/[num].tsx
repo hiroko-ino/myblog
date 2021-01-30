@@ -6,7 +6,12 @@ import Layout from '../../../components/Layout'
 import Post from '../../../components/post'
 import Pagination from '../../../components/Pagination'
 
-const Paged = ({ posts, num, allPosts, category }) => {
+const Paged = ({ posts, num, allPosts, category }: {
+  posts: any;
+  num: number;
+  allPosts: any;
+  category: any;
+}) => {
   return (
     <>
       <Head>
@@ -17,7 +22,7 @@ const Paged = ({ posts, num, allPosts, category }) => {
       <Layout category={category}>
         <div>
           {posts.length > 0
-            ? posts.map((p) => (
+            ? posts.map((p: any) => (
                 <Post
                   key={p.fields.slug}
                   title={p.fields.title}
@@ -50,7 +55,9 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: {
+  params: any;
+}) => {
   const posts = await client.getEntries({content_type: 'blogPost', order: '-sys.createdAt', limit: 10, skip: (params.num - 1) * 10 })
   const allPosts = await client.getEntries({content_type: 'blogPost'})
   const category = await client.getEntries({content_type: "category"})

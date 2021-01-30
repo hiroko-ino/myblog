@@ -19,7 +19,11 @@ import {
 } from "react-share";
 
 
-const Blog = ({ post, category, slug }) => {
+const Blog = ({ post, category, slug }: {
+  post: any;
+  category: any;
+  slug: string;
+}) => {
   const day = dayjs(post.sys.createdAt);
 
   return (
@@ -64,7 +68,7 @@ const Blog = ({ post, category, slug }) => {
 export const getStaticPaths = async () => {
   const posts = await client.getEntries({content_type: "blogPost"})
 
-  const paths = posts.items.map((post) => ({
+  const paths = posts.items.map((post: any) => ({
     params: {
       slug: post.fields.slug.toString(),
     },
@@ -72,7 +76,9 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: {
+  params: any;
+}) => {
   const post = await client.getEntries({content_type: "blogPost", "fields.slug": params.slug})
   const category = await client.getEntries({content_type: "category"})
 
