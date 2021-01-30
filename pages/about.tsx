@@ -6,7 +6,9 @@ import { client } from '../libs/contentful'
 
 import styled from './about.module.scss'
 
-const About = ({ category }) => {
+const About = ({ category }: {
+  category: any;
+}) => {
   return (
     <Layout category={category}>
       <Head>
@@ -27,7 +29,9 @@ const About = ({ category }) => {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: {
+  params: any;
+}) => {
   const category = await client.getEntries({content_type: "category"});
 
   return {

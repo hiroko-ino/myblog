@@ -6,7 +6,10 @@ import Menu from './Menu'
 
 import styles from './Layout.module.scss'
 
-const Layout = ({ children, category }) => {
+const Layout = ({ children, category }: {
+  children: React.ReactNode;
+  category: any;
+}) => {
   return (
     <>
       <Header />

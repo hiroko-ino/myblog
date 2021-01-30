@@ -7,7 +7,13 @@ import Post from '../../../../components/post'
 import Pagination from '../../../../components/Pagination'
 import { lstat } from 'fs'
 
-const Paged = ({ posts, num, category, categorySlug, allPosts }) => {
+const Paged = ({ posts, num, category, categorySlug, allPosts }: {
+  posts: any;
+  num: number;
+  category: any;
+  categorySlug: string;
+  allPosts: any;
+}) => {
   return (
     <>
       <Head>
@@ -18,7 +24,7 @@ const Paged = ({ posts, num, category, categorySlug, allPosts }) => {
       <Layout category={category}>
         <div>
           {posts.length > 0
-            ? posts.map((p) => (
+            ? posts.map((p: any) => (
                 <Post
                   key={p.fields.slug}
                   title={p.fields.title}
@@ -64,7 +70,9 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: {
+  params: any;
+}) => {
   const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.category})
   const allPosts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id })
   const posts = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt', limit: 10, skip: (params.num - 1) * 10 })

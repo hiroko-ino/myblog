@@ -4,7 +4,12 @@ import dayjs from 'dayjs'
 
 import styled from './Post.module.scss'
 
-const Post = ({ title, slug, category, createdAt }) => {
+const Post = ({ title, slug, category, createdAt } : {
+  title: string;
+  slug: string;
+  category: string;
+  createdAt: string;
+}) => {
   const day = dayjs(createdAt);
 
   return (

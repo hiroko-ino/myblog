@@ -7,7 +7,11 @@ import Post from '../../../components/post'
 
 import Pagination from '../../../components/Pagination'
 
-const Blog = ({ posts, categorySlug, category }) => {
+const Blog = ({ posts, categorySlug, category }: {
+  posts: any;
+  categorySlug: string;
+  category: any;
+}) => {
   return (
     <>
       <Head>
@@ -17,7 +21,7 @@ const Blog = ({ posts, categorySlug, category }) => {
       <Layout category={category}>
       <div>
           {posts.length > 0
-            ? posts.map((p, index) => (
+            ? posts.map((p: any, index: number) => (
                 index < 10 && <Post
                   key={p.fields.slug}
                   title={p.fields.title}
@@ -37,7 +41,7 @@ const Blog = ({ posts, categorySlug, category }) => {
 export const getStaticPaths = async () => {
   const posts = await client.getEntries({content_type: "category"})
 
-  const paths = posts.items.map((post) => ({
+  const paths = posts.items.map((post: any) => ({
     params: {
       category: post.fields.slug.toString(),
     },
@@ -45,7 +49,9 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: {
+  params: any;
+}) => {
   const narrowesCategory = await client.getEntries({content_type: "category", 'fields.slug': params.category})
   const post = await client.getEntries({content_type: "blogPost", "fields.category.sys.id": narrowesCategory.items[0].sys.id, order: '-sys.createdAt'})
   const category = await client.getEntries({content_type: "category"});
