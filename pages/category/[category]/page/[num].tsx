@@ -19,7 +19,6 @@ const Paged = ({ posts, num, category, categorySlug, allPosts }: {
       <Head>
         <title>type:any</title>
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
-        <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout category={category}>
         <div>
