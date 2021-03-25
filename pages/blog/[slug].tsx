@@ -30,6 +30,7 @@ const Blog = ({ post, category, slug }: {
     <>
       <Head>
         <title>{post.fields.title} | type:any</title>
+        <link rel="canonical" href={`https://type-any.com/blog/${slug}`} />
         <meta name="description" content={post.fields.body.slice(0, 120).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')}></meta>
         <meta property="og:title" content={`${post.fields.title} | type:any`} />
         <meta property="og:type" content="article" />

@@ -16,6 +16,7 @@ const Blog = ({ posts, categorySlug, category }: {
     <>
       <Head>
         <title>{categorySlug} | type:any</title>
+        <link rel="canonical" href={`https://type-any.com/category/${categorySlug}`} />
       </Head>
       <Layout category={category}>
       <div>

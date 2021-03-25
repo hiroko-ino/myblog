@@ -14,6 +14,7 @@ const HomePage = ({ posts, category }: {
     <>
       <Head>
         <title>type:any</title>
+        <link rel="canonical" href="https://type-any.com/" />
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
       </Head>
       <Layout category={category}>
