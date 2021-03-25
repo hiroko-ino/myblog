@@ -16,7 +16,6 @@ const Blog = ({ posts, categorySlug, category }: {
     <>
       <Head>
         <title>{categorySlug} | type:any</title>
-        <link rel="icon" href="/favicon.png"/>
       </Head>
       <Layout category={category}>
       <div>

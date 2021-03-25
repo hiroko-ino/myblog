@@ -9,7 +9,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="ja">
-        <Head />
+        <Head>
+          <link rel="icon" href="/favicon.png"/>
+        </Head>
         <body>
           <Main />
           <NextScript />

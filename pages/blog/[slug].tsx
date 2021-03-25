@@ -31,7 +31,6 @@ const Blog = ({ post, category, slug }: {
       <Head>
         <title>{post.fields.title} | type:any</title>
         <meta name="description" content={post.fields.body.slice(0, 120).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')}></meta>
-        <link rel="icon" href="/favicon.png"/>
         <meta property="og:title" content={`${post.fields.title} | type:any`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://type-any.com/blog/${slug}`} />

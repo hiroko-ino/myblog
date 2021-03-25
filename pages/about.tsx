@@ -14,7 +14,6 @@ const About = ({ category }: {
       <Head>
         <title>about | type:any</title>
         <meta name="description" content="type:anyのブログに関する情報です。"></meta>
-        <link rel="icon" href="/favicon.png"/>
       </Head>
       <div className={styled.wrap}>
         <p className={styled.description}>
