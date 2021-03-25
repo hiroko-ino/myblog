@@ -16,6 +16,7 @@ const Paged = ({ posts, num, allPosts, category }: {
     <>
       <Head>
         <title>type:any</title>
+        <link rel="canonical" href={`https://type-any.com/blog/page/1`} />
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
       </Head>
       <Layout category={category}>

@@ -13,6 +13,7 @@ const About = ({ category }: {
     <Layout category={category}>
       <Head>
         <title>about | type:any</title>
+        <link rel="canonical" href="https://type-any.com/about" />
         <meta name="description" content="type:anyのブログに関する情報です。"></meta>
       </Head>
       <div className={styled.wrap}>
