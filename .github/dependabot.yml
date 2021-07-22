@@ -4,6 +4,6 @@ updates:
   - package-ecosystem: "npm"
     # 「root」ディレクトリで「package.json」と「lock」ファイルを探す
     directory: "/"
-    # npm レジストリの更新を毎日（平日）チェックする
+    # npm レジストリの更新を毎週チェックする
     schedule:
       interval: "weekly"
