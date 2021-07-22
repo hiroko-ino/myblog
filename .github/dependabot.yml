@@ -1,0 +1,9 @@
+version: 2
+updates:
+  # npm のバージョン更新を有効にする
+  - package-ecosystem: "npm"
+    # 「root」ディレクトリで「package.json」と「lock」ファイルを探す
+    directory: "/"
+    # npm レジストリの更新を毎日（平日）チェックする
+    schedule:
+      interval: "weekly"
