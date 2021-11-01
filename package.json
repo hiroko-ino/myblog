@@ -20,7 +20,7 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^16.10.2",
+    "@types/node": "^16.11.6",
     "@types/react": "^17.0.26",
     "@types/react-responsive": "^8.0.4",
     "sass": "^1.42.1",
