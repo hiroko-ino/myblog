@@ -6,4 +6,4 @@ updates:
     directory: "/"
     # npm レジストリの更新を毎週チェックする
     schedule:
-      interval: "monthly"
+      interval: "weekly"
