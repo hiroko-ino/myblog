@@ -127,6 +127,12 @@
     margin-top: 30px;
     font-size: $basicFontSize;
   }
+
+  & blockquote {
+    margin-top: 1em;
+    border-left: 1px solid $white;
+    padding-left: 12px;
+  }
 }
 
 .back {
