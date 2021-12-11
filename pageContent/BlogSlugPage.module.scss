@@ -1,4 +1,4 @@
-@import '../../styles/variable';
+@import '../styles/variable';
 
 .wrap {
   display: flex;
@@ -118,6 +118,20 @@
     margin-top: 25px;
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
+    white-space: pre-wrap;
+  }
+
+  & h2 {
+    border-bottom: 1px solid $white;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    font-size: $basicFontSize;
+  }
+
+  & blockquote {
+    margin-top: 1em;
+    border-left: 1px solid $white;
+    padding-left: 12px;
   }
 }
 
@@ -138,8 +152,21 @@
   border-bottom: 3px solid $white;
   padding: 0 3px 3px;
   text-decoration: none;
+  transition: padding .2s;
+
+  &:hover {
+    padding: 0 13px 3px;
+  }
 
   @media screen and (max-width:767px) {
     font-size: $FontSizeS_SP;
+  }
+}
+
+.share {
+  margin-top: 20px;
+
+  > button {
+    margin-right: 10px;
   }
 }

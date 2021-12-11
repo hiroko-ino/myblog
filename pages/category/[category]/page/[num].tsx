@@ -1,19 +1,19 @@
 import Head from 'next/head'
+import { NextPage } from 'next'
 
 import { client } from '../../../../libs/contentful'
 
-import Layout from '../../../../components/Layout'
-import Post from '../../../../components/post'
-import Pagination from '../../../../components/Pagination'
-import { lstat } from 'fs'
+import CategoryNumPage from '../../../../pageContent/CategoryNumPage'
 
-const Paged = ({ posts, num, category, categorySlug, allPosts }: {
+interface CategoryNumProps {
   posts: any;
   num: number;
   category: any;
   categorySlug: string;
   allPosts: any;
-}) => {
+}
+
+const CategoryNum: NextPage<CategoryNumProps> = ({ posts, num, category, categorySlug, allPosts }) => {
   return (
     <>
       <Head>
@@ -21,22 +21,7 @@ const Paged = ({ posts, num, category, categorySlug, allPosts }: {
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
         <link rel="canonical" href={`https://type-any.com/category/${categorySlug}`} />
       </Head>
-      <Layout category={category}>
-        <div>
-          {posts.length > 0
-            ? posts.map((p: any) => (
-                <Post
-                  key={p.fields.slug}
-                  title={p.fields.title}
-                  category={p.fields.category.fields.name}
-                  slug={p.fields.slug}
-                  createdAt={p.sys.createdAt}
-              />
-              ))
-            : null}
-          </div>
-        <Pagination posts={allPosts} currentNum={Number(num)} category={categorySlug} />
-      </Layout>
+      <CategoryNumPage posts={posts} num={num} category={category} categorySlug={categorySlug} allPosts={allPosts} />
     </>
   )
 }
@@ -89,4 +74,4 @@ export const getStaticProps = async ({ params }: {
   }
 }
 
-export default Paged;
+export default CategoryNum;

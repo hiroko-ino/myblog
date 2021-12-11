@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import Post from '../components/post'
-
 import { client } from '../libs/contentful'
 
-import Layout from '../components/Layout'
-import Pagination from '../components/Pagination'
+import { NextPage } from 'next'
+import IndexPage from '../pageContent/IndexPage'
 
-const HomePage = ({ posts, category }: {
+interface IndexProps {
   posts: any;
   category: any;
-}) => {
+}
+
+const Index: NextPage<IndexProps> = ({ posts, category }) => {
   return (
     <>
       <Head>
@@ -17,22 +17,7 @@ const HomePage = ({ posts, category }: {
         <link rel="canonical" href="https://type-any.com/" />
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
       </Head>
-      <Layout category={category}>
-        <div>
-          {posts.length > 0
-            ? posts.map((p: any, index: number) => (
-                index < 10 && <Post
-                  key={p.fields.slug}
-                  title={p.fields.title}
-                  category={p.fields.category.fields.name}
-                  slug={p.fields.slug}
-                  createdAt={p.sys.createdAt}
-                />
-              ))
-            : null}
-          </div>
-          <Pagination posts={posts} currentNum={1} />
-        </Layout>
+      <IndexPage posts={posts} category={category} />
     </>
   )
 }
@@ -51,4 +36,4 @@ export const getStaticProps = async ({ params }: {
   }
 }
 
-export default HomePage
+export default Index

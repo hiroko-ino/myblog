@@ -1,39 +1,23 @@
+import { NextPage } from 'next'
 import Head from 'next/head'
 
 import { client } from '../../../libs/contentful'
+import CategoryIndexPage from '../../../pageContent/CategoryIndexPage'
 
-import Layout from '../../../components/Layout'
-import Post from '../../../components/post'
-
-import Pagination from '../../../components/Pagination'
-
-const Blog = ({ posts, categorySlug, category }: {
+interface IndexProps {
   posts: any;
   categorySlug: string;
   category: any;
-}) => {
+}
+
+const Index: NextPage<IndexProps> = ({ posts, categorySlug, category }) => {
   return (
     <>
       <Head>
         <title>{categorySlug} | type:any</title>
         <link rel="canonical" href={`https://type-any.com/category/${categorySlug}`} />
+        <CategoryIndexPage posts={posts} category={category} categorySlug={categorySlug} />
       </Head>
-      <Layout category={category}>
-      <div>
-          {posts.length > 0
-            ? posts.map((p: any, index: number) => (
-                index < 10 && <Post
-                  key={p.fields.slug}
-                  title={p.fields.title}
-                  category={p.fields.category.fields.name}
-                  slug={p.fields.slug}
-                  createdAt={p.sys.createdAt}
-                />
-              ))
-            : null}
-          </div>
-          <Pagination posts={posts} currentNum={1} category={categorySlug} />
-      </Layout>
     </>
   )
 }
@@ -65,4 +49,4 @@ export const getStaticProps = async ({ params }: {
   }
 }
 
-export default Blog;
+export default Index;
