@@ -3,8 +3,6 @@ import Layout from '../components/Layout'
 import Post from '../components/post'
 import Pagination from '../components/Pagination'
 
-import styled from './CategoryNumPage.module.scss'
-
 interface CategoryNumPageProps {
   posts: any;
   num: number;
