@@ -10,6 +10,7 @@ interface CategoryIndexPageProps {
 }
 
 const CategoryIndexPage: React.FC<CategoryIndexPageProps> = React.memo(({ posts, category, categorySlug }) => {
+  console.log(posts)
   return (
     <Layout category={category}>
       <div>
