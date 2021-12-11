@@ -1,17 +1,17 @@
 import Head from 'next/head'
+import { NextPage } from 'next'
 
 import { client } from '../../../libs/contentful'
+import BlogNumPage from '../../../pageContent/BlogNumPage'
 
-import Layout from '../../../components/Layout'
-import Post from '../../../components/post'
-import Pagination from '../../../components/Pagination'
-
-const Paged = ({ posts, num, allPosts, category }: {
+interface BlogNumProps {
   posts: any;
   num: number;
   allPosts: any;
   category: any;
-}) => {
+}
+
+const BlogNum: NextPage<BlogNumProps> = ({ posts, num, allPosts, category }) => {
   return (
     <>
       <Head>
@@ -19,22 +19,7 @@ const Paged = ({ posts, num, allPosts, category }: {
         <link rel="canonical" href={`https://type-any.com/blog/page/1`} />
         <meta name="description" content="フロントエンドのことを中心に、自分の書きたいことを書くブログ"></meta>
       </Head>
-      <Layout category={category}>
-        <div>
-          {posts.length > 0
-            ? posts.map((p: any) => (
-                <Post
-                  key={p.fields.slug}
-                  title={p.fields.title}
-                  category={p.fields.category.fields.name}
-                  slug={p.fields.slug}
-                  createdAt={p.sys.createdAt}
-              />
-              ))
-            : null}
-          </div>
-        <Pagination posts={allPosts} currentNum={Number(num)} />
-      </Layout>
+      <BlogNumPage posts={posts} num={num} allPosts={allPosts} category={category} />
     </>
   )
 }
@@ -72,4 +57,4 @@ export const getStaticProps = async ({ params }: {
   }
 }
 
-export default Paged;
+export default BlogNum;
