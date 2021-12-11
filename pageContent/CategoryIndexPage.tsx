@@ -3,13 +3,13 @@ import Layout from '../components/Layout'
 import Post from '../components/post'
 import Pagination from '../components/Pagination'
 
-interface IndexPageProps {
+interface CategoryIndexPageProps {
   posts: any;
   categorySlug: string;
   category: any;
 }
 
-const IndexPage: React.FC<IndexPageProps> = React.memo(({ posts, category, categorySlug }) => {
+const CategoryIndexPage: React.FC<CategoryIndexPageProps> = React.memo(({ posts, category, categorySlug }) => {
   return (
     <Layout category={category}>
       <div>
@@ -30,4 +30,4 @@ const IndexPage: React.FC<IndexPageProps> = React.memo(({ posts, category, categ
   )
 })
 
-export default IndexPage
+export default CategoryIndexPage

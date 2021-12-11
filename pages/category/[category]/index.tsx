@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 
 import { client } from '../../../libs/contentful'
-import IndexPage from '../../../pageContent/IndexPage'
+import CategoryIndexPage from '../../../pageContent/CategoryIndexPage'
 
 interface IndexProps {
   posts: any;
@@ -16,7 +16,7 @@ const Index: NextPage<IndexProps> = ({ posts, categorySlug, category }) => {
       <Head>
         <title>{categorySlug} | type:any</title>
         <link rel="canonical" href={`https://type-any.com/category/${categorySlug}`} />
-        <IndexPage posts={posts} category={category} categorySlug={categorySlug} />
+        <CategoryIndexPage posts={posts} category={category} categorySlug={categorySlug} />
       </Head>
     </>
   )
