@@ -4,20 +4,20 @@ import Head from 'next/head'
 import { client } from '../../../libs/contentful'
 import CategoryIndexPage from '../../../pageContent/CategoryIndexPage'
 
-interface IndexProps {
+interface CategoryIndexProps {
   posts: any;
   categorySlug: string;
   category: any;
 }
 
-const Index: NextPage<IndexProps> = ({ posts, categorySlug, category }) => {
+const CategoryIndex: NextPage<CategoryIndexProps> = ({ posts, categorySlug, category }) => {
   return (
     <>
       <Head>
         <title>{categorySlug} | type:any</title>
         <link rel="canonical" href={`https://type-any.com/category/${categorySlug}`} />
-        <CategoryIndexPage posts={posts} category={category} categorySlug={categorySlug} />
       </Head>
+      <CategoryIndexPage posts={posts} category={category} categorySlug={categorySlug} />
     </>
   )
 }
@@ -49,4 +49,4 @@ export const getStaticProps = async ({ params }: {
   }
 }
 
-export default Index;
+export default CategoryIndex;
