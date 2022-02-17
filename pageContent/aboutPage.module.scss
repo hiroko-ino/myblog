@@ -14,3 +14,26 @@
   font-size: $FontSizeS;
   line-height: $mainLineHeight;
 }
+
+.list {
+  margin-top: 30px;
+}
+
+.item {
+  border: 1px solid #fff;
+  padding: 20px;
+
+  & + & {
+    margin-top: 20px;
+  }
+}
+
+.sitename {
+  font-size: 18px;
+}
+
+.text {
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 1.8;
+}
