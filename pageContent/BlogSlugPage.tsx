@@ -27,7 +27,7 @@ const BlogSlugPage: React.FC<BlogSlugPageProps> = React.memo(({ post, category, 
   return (
     <Layout category={category}>
       <div className={styled.wrap}>
-          <p className={styled.date}>{day.format("YYYY.MM.DD")}</p>
+          <p className={styled.date}><time dateTime={day.format("YYYY-MM-DD")}>{day.format("YYYY.MM.DD")}</time></p>
           <div className={styled.main}>
               <h1 className={styled.heading}>{post.fields.title}</h1>
               <p className={styled.category}>{'{'} category: {`"${post.fields.category.fields.name}"`} {'}'}</p>
