@@ -20,7 +20,7 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.12.2",
+    "@netlify/plugin-nextjs": "^4.13.0",
     "@types/node": "^18.0.6",
     "@types/react": "^18.0.5",
     "@types/react-responsive": "^8.0.5",
