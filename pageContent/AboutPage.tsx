@@ -7,11 +7,11 @@ const AboutPage = React.memo(() => {
     <div className={styled.wrap}>
       <p className={styled.description}>
         author: hiroko ino<br />
-        skill: html/css/JavaScript/TypeScript/jQuery/WordPress/React<br />
+        skill: html/css/JavaScript/TypeScript/WordPress/React/Vue.js/Flutter<br />
         contact: <a href="https://twitter.com/uribou_studying" target="_blank" rel="noopener noreferrer">Twitter</a><br /><br />
         美術大学出身で、最初はデザイナーとしてキャリアをスタートしました。<br />
-        フロントエンドエンジニアになり、テンプレートエンジンを用いた静的サイトの構築などを行っています。<br />
-        React案件に携わっていたこともあり、Reactを書くことを仕事のメインにしたいと思っており、ゆるく活動中。
+        フロントエンドエンジニアになり、現在は事業会社でVue.jsやFlutterを書いています。
+        仕事が落ち着いたらReactやデザインの副業を探す予定。
       </p>
       <ul className={styled.list}>
         <li className={styled.item}>
