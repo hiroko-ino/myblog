@@ -15,7 +15,7 @@
     "next": "^12.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-responsive": "^8.2.0",
+    "react-responsive": "^9.0.0",
     "react-share": "^4.3.1",
     "reset-css": "^5.0.1"
   },
