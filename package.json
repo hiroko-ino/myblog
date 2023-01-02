@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.29.3",
-    "@types/node": "^18.11.14",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.25",
     "@types/react-responsive": "^8.0.5",
     "sass": "^1.57.1",
