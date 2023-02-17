@@ -10,7 +10,7 @@
     "deploy": "npm run build && npm run export"
   },
   "dependencies": {
-    "contentful": "^9.2.15",
+    "contentful": "^9.3.2",
     "dayjs": "^1.11.7",
     "next": "^13.1.6",
     "react": "18.2.0",
