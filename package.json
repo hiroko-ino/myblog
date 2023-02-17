@@ -10,9 +10,9 @@
     "deploy": "npm run build && npm run export"
   },
   "dependencies": {
-    "contentful": "^9.2.15",
+    "contentful": "^9.3.2",
     "dayjs": "^1.11.7",
-    "next": "^13.1.2",
+    "next": "^13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
@@ -20,8 +20,8 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.30.0",
-    "@types/node": "^18.11.18",
+    "@netlify/plugin-nextjs": "^4.30.4",
+    "@types/node": "^18.13.0",
     "@types/react": "^18.0.28",
     "@types/react-responsive": "^8.0.5",
     "sass": "^1.57.1",
