@@ -12,7 +12,7 @@
   "dependencies": {
     "contentful": "^9.3.2",
     "dayjs": "^1.11.7",
-    "next": "^13.1.6",
+    "next": "^13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
