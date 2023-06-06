@@ -43,7 +43,7 @@ const BlogSlugPage: React.FC<BlogSlugPageProps> = React.memo(({ post, category, 
                 </HatenaShareButton>
               </div>
               <div className={styled.body} dangerouslySetInnerHTML={{ __html: post.fields.body}} />
-              <div className={styled.back}><Link href="/"><a className={styled.backlink}>BackToIndex</a></Link></div>
+              <div className={styled.back}><Link legacyBehavior href="/"><a className={styled.backlink}>BackToIndex</a></Link></div>
           </div>
       </div>
     </Layout>

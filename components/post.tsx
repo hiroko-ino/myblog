@@ -16,7 +16,7 @@ const Post = ({ title, slug, category, createdAt } : {
     <div className={styled.item}>
       <p className={styled.date}><time dateTime={day.format("YYYY-MM-DD")}>{day.format("YYYY.MM.DD")}</time></p>
       <div className={styled.main}>
-        <Link href={`/blog/${encodeURIComponent(slug)}`}>
+        <Link legacyBehavior href={`/blog/${encodeURIComponent(slug)}`}>
           <a className={styled.link}>
             <h2 className={styled.heading}>{title}</h2>
             <p className={styled.category}>{'{'} category: {`"${category}"`} {'}'}</p>

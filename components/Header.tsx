@@ -5,7 +5,7 @@ import styled from './Header.module.scss'
 const Header = () => (
   <header className={styled.header}>
     <h1 className={styled.heading}>
-      <Link href="/">
+      <Link legacyBehavior href="/">
         <a className={styled.link}>
           type:any
         </a>
