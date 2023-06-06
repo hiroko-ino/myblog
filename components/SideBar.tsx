@@ -8,6 +8,7 @@ const SideBar = ({ category }: {
   return (
     <div className={styled.wrap}>
       <p className={styled.item}><Link href="/about">About me</Link></p>
+      <p className={styled.item}><Link href="/works">Works</Link></p>
       {category.length > 0 &&
         <>
           <h3 className={styled.heading}>Category archives</h3>
