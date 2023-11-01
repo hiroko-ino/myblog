@@ -1450,10 +1450,10 @@ regexp-tree@^0.1.24:
   resolved "https://registry.yarnpkg.com/regexp-tree/-/regexp-tree-0.1.27.tgz#2198f0ef54518ffa743fe74d983b56ffd631b6cd"
   integrity sha512-iETxpjK6YoRWJG5o6hXLwvjYAoW+FEZn9os0PD/b6AP6xQwsa/Y7lCVgIixBbUPMfhu+i2LtdeAqVTgGlQarfA==
 
-reset-css@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/reset-css/-/reset-css-5.0.1.tgz#1ced0604fdb6836567e40d82de3537afaf3bb4c8"
-  integrity sha512-VyuJdNFfp5x/W6e5wauJM59C02Vs0P22sxzZGhQMPaqu/NGTeFxlBFOOw3eq9vQd19gIDdZp7zi89ylyKOJ33Q==
+reset-css@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/reset-css/-/reset-css-5.0.2.tgz#67432ee97f1dc133b87b7e1475cdf0bd19556ed8"
+  integrity sha512-YtgUGSq5z5W0NPSjsBW7ys7rtWa8P8AiE7S6Fg3d1TQCPpAodgYyLuZYlU0AOsLtprk/fC9ormHN/0pAavVIDw==
 
 reusify@^1.0.4:
   version "1.0.4"
