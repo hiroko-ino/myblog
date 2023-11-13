@@ -306,10 +306,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-responsive@^8.0.5":
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-8.0.5.tgz#77769862d2a0711434feb972be08e3e6c334440a"
-  integrity sha512-k3gQJgI87oP5IrVZe//3LKJFnAeFaqqWmmtl5eoYL2H3HqFcIhUaE30kRK1CsW3DHdojZxcVj4ZNc2ClsEu2PA==
+"@types/react-responsive@^8.0.8":
+  version "8.0.8"
+  resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-8.0.8.tgz#e351be7cc4d03bc476075839922bb5f9a3094e76"
+  integrity sha512-HDUZtoeFRHrShCGaND23HmXAB9evOOTjkghd2wAasLkuorYYitm5A1XLeKkhXKZppcMBxqB/8V4Snl6hRUTA8g==
   dependencies:
     "@types/react" "*"
 
