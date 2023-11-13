@@ -23,7 +23,7 @@
     "@netlify/plugin-nextjs": "^4.40.1",
     "@types/node": "^20.8.10",
     "@types/react": "^18.2.21",
-    "@types/react-responsive": "^8.0.5",
+    "@types/react-responsive": "^8.0.8",
     "sass": "^1.69.5",
     "typescript": "^5.2.2"
   }
