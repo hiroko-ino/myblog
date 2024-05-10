@@ -13,9 +13,7 @@ const Layout = ({ children, category }: {
   return (
     <>
       <Header />
-      <MediaQuery query="(max-width: 1170px)">
-        <Menu category={category} />
-      </MediaQuery>
+      <Menu category={category} />
       <div className={styles.container}>
         <div className={styles.main}>{children}</div>
         <SideBar category={category} />
