@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@contentful/content-source-maps@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.5.0.tgz#3561c705f49ec3411aa90ff8a3606ceb5da1fc5b"
+  integrity sha512-Ui14m5QvgFWteAXsv5pmFtbm2deGUJrn1WPHoBa79SK3Z3nV47wQb3/aDZhnXushgpJlk2HmH32Fda/0XZqq1w==
+  dependencies:
+    "@vercel/stega" "^0.1.2"
+    json-pointer "^0.6.2"
+
 "@contentful/rich-text-types@^16.0.2":
   version "16.1.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.1.0.tgz#2eea32439790abf857992167df68e82734934a3a"
@@ -332,6 +340,11 @@
   resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-2.2.2.tgz#f63466ab6a2588afdc6262c2d060289bfe8baa6b"
   integrity sha512-haGBC8noyA5BfjCRXRH+VIkHCDVW5iD5UX24P2nOdilwUxI4qWsattS/co8QBGq64XsNLRAMdM5pQUE3zxkF9Q==
 
+"@vercel/stega@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@vercel/stega/-/stega-0.1.2.tgz#0c20c5c9419c4288b1de58a64b5f9f26c763b25f"
+  integrity sha512-P7mafQXjkrsoyTRppnt0N21udKS9wUmLXHRyP9saLXLHw32j/FgUJ3FscSWgvSqRs4cj7wKZtwqJEvWJ2jbGmA==
+
 ansi-styles@^4.1.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
@@ -362,12 +375,12 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-axios@^1.4.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
-  integrity sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==
+axios@^1.6.7:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.0.tgz#b48f715325457ededfcb3f0a44a3fb9d5742acb6"
+  integrity sha512-IiB0wQeKyPRdsFVhBgIo31FbzOyf2M6wYl7/NVutFwFBRMiAbjNiydJIHKeLmPugF4kJLfA1uWZ82Is2QzqqFA==
   dependencies:
-    follow-redirects "^1.15.0"
+    follow-redirects "^1.15.6"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -541,13 +554,14 @@ contentful-sdk-core@^8.1.0:
     lodash.isstring "^4.0.1"
     p-throttle "^4.1.1"
 
-contentful@^10.6.5:
-  version "10.6.5"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.6.5.tgz#2221a2229d715c7e8f627ebbdc5ba93b98d41dc2"
-  integrity sha512-b+/StwpFJi4ZHkXrl8WD3BjICOJ6FJmMmqvDmY9if0pPfSwkWhiUtxzeVV3C5OZ2yWGuxrXr2yGtuUj8E2y4vA==
+contentful@^10.11.1:
+  version "10.11.1"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.11.1.tgz#d9a9592305571730c1d2634db4c37969a796230b"
+  integrity sha512-+YzOFk+U8no/tNDJT2b54gShNFERwH5uegqpZmACDHQCMBJ6E8FSXgRC6/CEA4QnGaRflGZFSuzh4pRjxPubbw==
   dependencies:
+    "@contentful/content-source-maps" "^0.5.0"
     "@contentful/rich-text-types" "^16.0.2"
-    axios "^1.4.0"
+    axios "^1.6.7"
     contentful-resolve-response "^1.8.1"
     contentful-sdk-core "^8.1.0"
     json-stringify-safe "^5.0.1"
@@ -722,10 +736,15 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-follow-redirects@^1.15.0, follow-redirects@^1.15.2:
+follow-redirects@^1.15.2, follow-redirects@^1.15.6:
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
   integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
+
+foreach@^2.0.4:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.6.tgz#87bcc8a1a0e74000ff2bf9802110708cfb02eb6e"
+  integrity sha512-k6GAGDyqLe9JaebCsFCoudPPWfihKu8pylYXRlqP1J7ms39iPoTtk2fviNglIeQEwdh0bQeKJ01ZPyuyQvKzwg==
 
 form-data@^4.0.0:
   version "4.0.0"
@@ -979,6 +998,13 @@ isexe@^2.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+
+json-pointer@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/json-pointer/-/json-pointer-0.6.2.tgz#f97bd7550be5e9ea901f8c9264c9d436a22a93cd"
+  integrity sha512-vLWcKbOaXlO+jvRy4qNd+TI1QUPZzfJj1tpJ3vAXDych5XJf93ftpUKe5pKCrzyIIwgBJcOcCVRUfqQP25afBw==
+  dependencies:
+    foreach "^2.0.4"
 
 json-stringify-safe@^5.0.1:
   version "5.0.1"
