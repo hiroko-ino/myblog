@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.8.5.tgz#832c8b428612f5181908bc1033c6ef9f48f1ce83"
   integrity sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==
 
-"@netlify/plugin-nextjs@^5.6.0":
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.6.0.tgz#970f96b11bee4fe115fad8e3e4f3c6121f97a370"
-  integrity sha512-PBrsd/GJZ9MN8BdyIoleTkY22lAUMfcRxrbb8wgxGzXtTW0RU0GW2mc99ISB6zOwWMZ11rSjeN0GS6znnukvww==
+"@netlify/plugin-nextjs@^5.9.2":
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.9.2.tgz#3c23a3ec1dc6721025c2d8aaafe495e7059a3cac"
+  integrity sha512-uoceIqubfp99UysXV0JvYL8uIybSnfAywwP1b3wNQLu+EueCRKuNvRiiwBkA5gta/rTEp23xD1HmuyT/9JDbaA==
 
 "@next/env@14.2.14":
   version "14.2.14"
