@@ -797,10 +797,10 @@ react-responsive@^10.0.0:
     prop-types "^15.6.1"
     shallow-equal "^3.1.0"
 
-react-share@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/react-share/-/react-share-4.4.1.tgz#4bfb0b512e26afedfea2fb66eb13c95c28fb216a"
-  integrity sha512-AJ9m9RiJssqvYg7MoJUc9J0D7b/liWrsfQ99ndKc5vJ4oVHHd4Fy87jBlKEQPibT40oYA3AQ/a9/oQY6/yaigw==
+react-share@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-share/-/react-share-5.2.1.tgz#92bb145a4b057501ba07f4e562b993e4cf7b9928"
+  integrity sha512-M69VhqBLpY89zgkOmuXz67EfVYHNTcVALMUirTRpVAUxRrkJicYl3OKp6ZM8dNYl86VrzXrArzoiwbyubJRYqg==
   dependencies:
     classnames "^2.3.2"
     jsonp "^0.2.1"
