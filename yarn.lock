@@ -169,10 +169,10 @@
   resolved "https://registry.yarnpkg.com/@img/sharp-win32-x64/-/sharp-win32-x64-0.34.5.tgz#a81ffb00e69267cd0a1d626eaedb8a8430b2b2f8"
   integrity sha512-+29YMsqY2/9eFEiW93eqWnuLcWcufowXewwSNIT6UwZdUUCrM3oFjMWH/Z6/TMmb4hlFenmfAVbpWeup2jryCw==
 
-"@netlify/plugin-nextjs@^5.9.2":
-  version "5.9.2"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.9.2.tgz#3c23a3ec1dc6721025c2d8aaafe495e7059a3cac"
-  integrity sha512-uoceIqubfp99UysXV0JvYL8uIybSnfAywwP1b3wNQLu+EueCRKuNvRiiwBkA5gta/rTEp23xD1HmuyT/9JDbaA==
+"@netlify/plugin-nextjs@^5.15.8":
+  version "5.15.8"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.15.8.tgz#be87c798ae52b95edc0f4ede689a273af47f10b9"
+  integrity sha512-zxHVtYhNV1ixLX/4xX6PFTxpM5ltfQIMXUo0JbppUWvDaYeeZIqoEmlYdfIHx6BKyjLSMm8D/b3IRReK5VYuyA==
 
 "@next/env@16.1.5":
   version "16.1.5"
